@@ -40,7 +40,7 @@ dependencies:
     form_builder_extra_fields: ^10.2.0
     flutter_typeahead: ^4.7.0
     google_maps_webapi: ^0.0.22
-    geolocator: ^12.0.0
+    geolocator: ^13.0.1
     http: ^1.2.1
     logger: ^2.3.0
 

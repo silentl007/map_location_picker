@@ -272,6 +272,9 @@ class MapLocationPicker extends StatefulWidget {
   /// True if the map view should respond to rotate gestures.
   final bool rotateGesturesEnabled;
 
+  /// True if the map view should respond to rotate gestures.
+  final LocationSettings? locationSettings;
+
   /// True if the map view should respond to scroll gestures.
   final bool scrollGesturesEnabled;
 
@@ -393,6 +396,7 @@ class MapLocationPicker extends StatefulWidget {
     this.zoomGesturesEnabled = true,
     this.decoration,
     this.bottomCardBuilder,
+    this.locationSettings,
   });
 
   @override
@@ -650,8 +654,8 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                           await Geolocator.requestPermission();
                           Position position =
                               await Geolocator.getCurrentPosition(
-                            desiredAccuracy: widget.desiredAccuracy,
-                          );
+                                  desiredAccuracy: widget.desiredAccuracy,
+                                  locationSettings: widget.locationSettings);
                           LatLng latLng =
                               LatLng(position.latitude, position.longitude);
                           _initialPosition = latLng;
